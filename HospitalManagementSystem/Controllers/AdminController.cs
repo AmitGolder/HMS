@@ -57,7 +57,6 @@ namespace HospitalManagementSystem.Controllers
         }
 
         [HttpPost]
-        [HttpGet]
         public ActionResult EditPatient(Patient status)
         {
             _Logger.LogInformation("patient endpoint starts");
