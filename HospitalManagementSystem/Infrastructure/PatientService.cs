@@ -1,5 +1,6 @@
 ﻿using HospitalManagementSystem.Infrastructure;
 using HospitalManagementSystem.Models;
+using HospitalManagementSystem.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
