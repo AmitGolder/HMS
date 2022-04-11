@@ -1,10 +1,10 @@
 ﻿@model HospitalManagementSystem.Models.Patient
 
 @{
-    ViewData["Title"] = "Add Patient Details";
+    ViewData["Title"] = "Update Patient Details";
 }
 
-<form method="post" asp-controller="Patient" asp-action="AddPatient">
+<form method="post" asp-controller="Admin" asp-action="Patient">
     <div>
         <div class="row">
             <div class="col-8">
@@ -13,7 +13,7 @@
                         <label asp-for="PatientID"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="PatientID" class="form-control" />
+                        <input asp-for="PatientID" class="form-control" readonly />
                         <span asp-validation-for="PatientID" class="text-danger"></span>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                         <label asp-for="PatientName"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="PatientName" class="form-control" />
+                        <input asp-for="PatientName" class="form-control" readonly />
                         <span asp-validation-for="PatientName" class="text-danger"></span>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                         <label asp-for="PatientStatus"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="PatientStatus" class="form-control" />
+                        <input asp-for="PatientStatus" class="form-control"/>
                         <span asp-validation-for="PatientStatus" class="text-danger"></span>
                     </div>
                 </div>
@@ -40,26 +40,18 @@
                         <label asp-for="PatientProb"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="PatientProb" class="form-control" />
+                        <input asp-for="PatientProb" class="form-control" readonly />
                         <span asp-validation-for="PatientProb" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     @*<div class="col-6 offset-4 row">*@
                     <div class="col-4 offset-4">
-                        <input type="submit" class="btn btn-info w-100" value="Add" />
+                        <input type="submit" class="btn btn-info w-100" value="Update" />
                     </div>
-                    @if (ViewBag.Message != null)
-                    {
-                        <a class="nav-link text-dark btn-primary font-weight-bold" style="position: relative; margin: 10px; background-color: #ff8d00;float: right" asp-controller="Admin" asp-action="GetAllPatients">Get Patient Details</a>
-                        <script type="text/javascript">
-                                                window.onload = function () {
-                                                alert("@ViewBag.Message");
-                                                };
-                        </script>
-                    }
                 </div>
             </div>
         </div>
     </div>
 </form>
+
