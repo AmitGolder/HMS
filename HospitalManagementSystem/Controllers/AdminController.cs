@@ -39,7 +39,6 @@ namespace HospitalManagementSystem.Controllers
                 _Logger.LogError("exception occured;ExceptionDetail:" + ex);
                 return BadRequest();
             }
-            //return Ok(patient);
             return View(patient);
         }
 
