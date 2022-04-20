@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "logicAppName": {
+      "value": "hms.workflow.sendemailalert"
+    },
+    "servicebus_connectionString": {
+      "value": "Endpoint=sb://hms-sb-nse.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=fJ1hRtHg4mBVVeNMxhY4XkKakCpRbGsZBv/CGQC190k="
+    },
+    "logicAppLocation": {
+      "value": "eastus"
+    }
+  }
+}

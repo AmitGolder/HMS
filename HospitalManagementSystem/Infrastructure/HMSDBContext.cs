@@ -1,5 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using HospitalManagementSystem.Models;
+﻿using HospitalManagementSystem.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace HospitalManagementSystem.Infrastructure
 {
@@ -9,7 +13,7 @@ namespace HospitalManagementSystem.Infrastructure
         {
 
         }
-        DbSet<Patient> Patient { get; set; }
+        DbSet<Patient> Patient{ get; set; }
         DbSet<HealthDepartment> HealthDepartments { get; set; }
 
     }

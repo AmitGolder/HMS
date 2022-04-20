@@ -1,10 +1,10 @@
 ﻿@model HospitalManagementSystem.Models.Patient
 
 @{
-    ViewData["Title"] = "Update Patient Details";
+    ViewData["Title"] = "Update Student Details";
 }
 
-<form method="post" asp-controller="Admin" asp-action="Patient">
+<form method="post" asp-controller="Admin" asp-action="EditPatient">
     <div>
         <div class="row">
             <div class="col-8">
@@ -40,8 +40,17 @@
                         <label asp-for="PatientProb"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="PatientProb" class="form-control" readonly />
+                        <input asp-for="PatientProb" class="form-control" readonly/>
                         <span asp-validation-for="PatientProb" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="DeptName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="DeptName" class="form-control" readonly/>
+                        <span asp-validation-for="DeptName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">

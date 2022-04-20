@@ -13,10 +13,12 @@ namespace HospitalManagementSystem.Controllers
     {
         private readonly IPatientService _ptService;
         private readonly ILogger<AdminController> _Logger;
-        public AdminController(IPatientService ptService, ILogger<AdminController> Logger)
+        private readonly IHealthDepartmentService _healthDeptService;
+        public AdminController(IPatientService ptService, IHealthDepartmentService healthDeptService, ILogger<AdminController> Logger)
         {
             _Logger = Logger;
             _ptService = ptService;
+            _healthDeptService = healthDeptService;
         }
         public IActionResult Index()
         {
@@ -41,6 +43,46 @@ namespace HospitalManagementSystem.Controllers
             }
             return View(patient);
         }
+
+        public async Task<IActionResult> GetAllPatients1()
+        {
+            _Logger.LogInformation("Patient endpoint starts");
+            var patient = await _ptService.GetPatientList();
+            try
+            {
+                if (patient == null) return NotFound();
+                _Logger.LogInformation("patient endpoint completed");
+            }
+            catch (Exception ex)
+            {
+                _Logger.LogError("exception occured;ExceptionDetail:" + ex.Message);
+                _Logger.LogError("exception occured;ExceptionDetail:" + ex.InnerException);
+                _Logger.LogError("exception occured;ExceptionDetail:" + ex);
+                return BadRequest();
+            }
+            return Ok(patient);
+        }
+
+        public async Task<IActionResult> GetAllHealthDepartment()
+        {
+            _Logger.LogInformation("student endpoint starts");
+            var department = await _healthDeptService.GetHealthDepartmentList();
+            try
+            {
+
+                if (department == null) return NotFound();
+
+                _Logger.LogInformation("Department endpoint completed");
+            }
+            catch (Exception ex)
+            {
+                _Logger.LogError("exception occured;ExceptionDetail:" + ex.Message);
+                _Logger.LogError("exception occured;ExceptionDetail:" + ex.InnerException);
+                _Logger.LogError("exception occured;ExceptionDetail:" + ex);
+                return BadRequest();
+            }
+            return View(department);
+        } 
 
         public ActionResult EditPatient(int Id)
         {

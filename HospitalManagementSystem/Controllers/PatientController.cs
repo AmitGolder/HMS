@@ -5,24 +5,28 @@ using HospitalManagementSystem.Models;
 using System;
 using System.Threading.Tasks;
 
+
 namespace HospitalManagementSystem.Controllers
 {
     public class PatientController : Controller
     {
         private readonly IPatientService _ptService;
         private readonly ILogger<PatientController> _Logger;
+        private readonly SendServiceBusMessage _sendServiceBusMessage;
 
-        public PatientController(IPatientService appContext, ILogger<PatientController> Logger)
+        public PatientController(IPatientService appContext, ILogger<PatientController> Logger, SendServiceBusMessage sendServiceBusMessage)
         {
             _Logger = Logger;
             _ptService = appContext;
+            _sendServiceBusMessage = sendServiceBusMessage;
+
         }
         public IActionResult Index()
         {
             return View();
         }
 
-        public ActionResult SearchPatientById(int ptID)
+        public ActionResult SearchPatietById(int ptID)
         {
             _Logger.LogInformation("Patient endpoint starts");
             Patient pt;
@@ -49,12 +53,19 @@ namespace HospitalManagementSystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddPatient(Patient pt)
+        public async Task<ActionResult> AddPatient(Patient pt)
         {
             _Logger.LogInformation("Patient endpoint starts");
             try
             {
                 _ptService.AddPatient(pt);
+                await _sendServiceBusMessage.sendServiceBusMessage(new ServiceBusMessageData
+                {
+                    Name = pt.PatientName,
+                    Status = pt.PatientStatus,
+                    Problem = pt.PatientProb,
+                    Department = pt.DeptId
+                });
                 _Logger.LogInformation("Patient endpoint completed");
             }
             catch (Exception ex)
@@ -85,5 +96,7 @@ namespace HospitalManagementSystem.Controllers
                 return BadRequest();
             }
         }
+
+        
     }
 }

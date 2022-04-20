@@ -1,6 +1,5 @@
 ﻿using HospitalManagementSystem.Infrastructure;
 using HospitalManagementSystem.Models;
-using HospitalManagementSystem.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +24,9 @@ namespace HospitalManagementSystem.Infrastructure
                 await Task.Delay(1000);
                 pt = _appContext.Set<Patient>().ToList();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                throw ex;
+                throw;
             }
             return pt;
         }
@@ -42,9 +41,9 @@ namespace HospitalManagementSystem.Infrastructure
                 pt = _appContext.Find<Patient>(ptID);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
 
@@ -58,12 +57,16 @@ namespace HospitalManagementSystem.Infrastructure
             _appContext.SaveChanges();
         }
 
-        public bool EditPatient(Patient rdUpdate)
+        public bool EditPatient(Patient pt)
         {
-            var patient = SearchPatient(rdUpdate.PatientID);
+            var patient = SearchPatient(pt.PatientID);
 
-            patient.PatientStatus = rdUpdate.PatientStatus;
-            patient.PatientStatus = rdUpdate.PatientStatus;
+
+            if (patient != null)
+            {
+                patient.PatientStatus = pt.PatientStatus;
+                _appContext.Update<Patient>(patient);
+            }
             if (_appContext.SaveChanges() > 0)
             {
                 return true;

@@ -28,6 +28,21 @@ namespace HospitalManagementSystem.Controllers
             return View();
         }
 
+        public IActionResult GetAllPatients()
+        {
+            return View();
+        }
+
+        public IActionResult GetAllHealthDepartment()
+        {
+            return View();
+        }
+
+        public IActionResult AddPatient()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

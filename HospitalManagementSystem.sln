@@ -5,6 +5,16 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalManagementSystem", "HospitalManagementSystem\HospitalManagementSystem.csproj", "{4147E0CC-5B15-417E-89C3-30A7401D8266}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalManagementSystemRepositoryLayer", "HospitalManagementSystemRepositoryLayer\HospitalManagementSystemRepositoryLayer.csproj", "{C6CD6E1C-5D0E-48C1-B1A6-78EF2E569784}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HospitalManagementSystemServiceLayer", "HospitalManagementSystemServiceLayer\HospitalManagementSystemServiceLayer.csproj", "{A6CE0690-16EF-431C-ADE2-C671983664C7}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "HMS.WorkFlow.SendEmailAlert", "HMS.WorkFlow.SendEmailAlert\HMS.WorkFlow.SendEmailAlert.deployproj", "{E4BE5569-651F-4F7E-AEF1-393340B23D1C}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "HMS.ServiceBus.Queue", "SMS.ServiceBus.Queue\HMS.ServiceBus.Queue.deployproj", "{549DBFF4-17F1-4C6C-AE16-EF6FDA7B8953}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.ValidateLogin", "HMS.ValidateLogin\HMS.ValidateLogin.csproj", "{85A855F7-73D9-4DB3-B8B1-0BDD6A1543EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{4147E0CC-5B15-417E-89C3-30A7401D8266}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4147E0CC-5B15-417E-89C3-30A7401D8266}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4147E0CC-5B15-417E-89C3-30A7401D8266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6CD6E1C-5D0E-48C1-B1A6-78EF2E569784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6CD6E1C-5D0E-48C1-B1A6-78EF2E569784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6CD6E1C-5D0E-48C1-B1A6-78EF2E569784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6CD6E1C-5D0E-48C1-B1A6-78EF2E569784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6CE0690-16EF-431C-ADE2-C671983664C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6CE0690-16EF-431C-ADE2-C671983664C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6CE0690-16EF-431C-ADE2-C671983664C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6CE0690-16EF-431C-ADE2-C671983664C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4BE5569-651F-4F7E-AEF1-393340B23D1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4BE5569-651F-4F7E-AEF1-393340B23D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4BE5569-651F-4F7E-AEF1-393340B23D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4BE5569-651F-4F7E-AEF1-393340B23D1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{549DBFF4-17F1-4C6C-AE16-EF6FDA7B8953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{549DBFF4-17F1-4C6C-AE16-EF6FDA7B8953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{549DBFF4-17F1-4C6C-AE16-EF6FDA7B8953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{549DBFF4-17F1-4C6C-AE16-EF6FDA7B8953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85A855F7-73D9-4DB3-B8B1-0BDD6A1543EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85A855F7-73D9-4DB3-B8B1-0BDD6A1543EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85A855F7-73D9-4DB3-B8B1-0BDD6A1543EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85A855F7-73D9-4DB3-B8B1-0BDD6A1543EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

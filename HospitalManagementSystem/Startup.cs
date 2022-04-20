@@ -1,3 +1,4 @@
+using HospitalManagementSystem.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -5,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using HospitalManagementSystem.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +28,8 @@ namespace HospitalManagementSystem
             services.AddControllersWithViews();
             services.AddDbContext<HMSDBContext>(x => x.UseSqlServer(Configuration.GetConnectionString("ConStr")));
             services.AddScoped<IPatientService, PatientService>();
+            services.AddScoped<IHealthDepartmentService, HealthDepartmentService>();
+            services.AddScoped<SendServiceBusMessage>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

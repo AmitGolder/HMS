@@ -1,14 +1,112 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div class="jumbotron">
+    <h1 class="display-4">Hospital Management System</h1>
+    <h3 class="lead">Most valuable thing is your health.</h3>
 
-<div class="text-center">
-    <h2 class="display-4">Welcome</h2>
-    <h1>Hospital Management System</h1>
-    <div>
-        <h2><a class="nav-link text-dark btn-primary font-weight-bold" style="position: relative; margin: 10px; background-color: peachpuff; " asp-controller="Admin" asp-action="GetAllPatients">Admin</a></h2>
-        <h2><a class="nav-link text-dark btn-primary font-weight-bold" style="position: relative; margin: 10px; background-color: peachpuff; " asp-controller="Patient" asp-action="AddPatient">Patient</a></h2>
-        @*<button id="myAdminButton" class="float-lg-none submit-button w-25" style="background-color: peachpuff;">Admin</button>
-            <button id="myStudentButton" class="float-lg-none submit-button w-25" style="background-color: lightgreen;">Patient</button>*@
+    <hr class="my-4">
+    <p>We care about your health Even the all Powerfull pointing has no control about the blind text it is an almost unorthographic life</p>
+    <p></p>
+</div>
+
+
+
+<div class="card text-center">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">List of all patients</h5>
+        <p class="card-text">To get the list, please click the button</p>
+        <a id="myAdminButton" class="btn btn-outline-danger">Patients List</a>
+    </div>
+    <script type="text/javascript">
+            document.getElementById("myAdminButton").onclick = function () {
+                location.href = "https://hmsvalidatelogin.azurewebsites.net/api/validatelogin?Users=Admin";
+            };
+    </script>
+    <div class="card-footer text-muted">
+
     </div>
 </div>
+<br />
+<div class="card text-center">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Add Patient Details</h5>
+        <p class="card-text">To add details related to the patient, please click the button</p>
+        <a id="myPatientButton" class="btn btn-outline-danger">Add Patient</a>
+    </div>
+    <script type="text/javascript">
+        document.getElementById("myPatientButton").onclick = function () {
+            location.href = "https://hmsvalidatelogin.azurewebsites.net/api/validatelogin?Users=Patient";
+        };
+    </script>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+<br />
+<div class="card text-center">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">List of health departments</h5>
+        <p class="card-text">To get the department name, please click the button</p>
+        <a class="btn btn-outline-danger" asp-controller="Admin" asp-action="GetAllHealthDepartment">Department List</a>
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+
+
+
+@*<div class="card text-center">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">List of all patients</h5>
+        <p class="card-text">To get the list, please click the button</p>
+        <a class="btn btn-outline-danger" asp-controller="Admin" asp-action="GetAllPatients">Patients List</a>
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+<br />
+<div class="card text-center">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Add Patient Details</h5>
+        <p class="card-text">To add details related to the patient, please click the button</p>
+        <a class="btn btn-outline-danger" asp-controller="Patient" asp-action="AddPatient">Add Patient</a>
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+<br />
+<div class="card text-center">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">List of health departments</h5>
+        <p class="card-text">To get the department name, please click the button</p>
+        <a class="btn btn-outline-danger" asp-controller="Admin" asp-action="GetAllHealthDepartment">Department List</a>
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>*@
+
+<br />
+<br />
