@@ -1,0 +1,50 @@
+﻿@model HospitalManagementSystem.Models.HealthDepartment
+
+@{
+    ViewData["Title"] = "AddHealthDepartment";
+}
+
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Add Health Department</h4>
+    <hr>
+</div>
+
+<form method="post" asp-controller="HealthDepartment" asp-action="AddHealthDepartmentById">
+    <div>
+        <div class="row">
+            <div class="col-8">
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="DeptName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="DeptName" class="form-control" />
+                        <span asp-validation-for="DeptName" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group row">
+                    @*<div class="col-6 offset-4 row">*@
+                    <div class="col-4 offset-4">
+                        <input type="submit" class="btn btn-danger w-100" value="Add" />
+                    </div>
+
+
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                    <a class="btn btn-outline-info btn-lg btn-block" asp-controller="Admin" asp-action="GetAllHealthDepartment">List of Health Department</a>
+                    <script type="text/javascript">
+                                                window.onload = function () {
+                                                alert("@ViewBag.Message");
+                                                };
+                    </script>
+                }
+            </div>
+        </div>
+    </div>
+</form>
+

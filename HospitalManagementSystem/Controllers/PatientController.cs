@@ -26,7 +26,7 @@ namespace HospitalManagementSystem.Controllers
             return View();
         }
 
-        public ActionResult SearchPatietById(int ptID)
+        public ActionResult SearchPatientById(int ptID)
         {
             _Logger.LogInformation("Patient endpoint starts");
             Patient pt;
@@ -61,10 +61,13 @@ namespace HospitalManagementSystem.Controllers
                 _ptService.AddPatient(pt);
                 await _sendServiceBusMessage.sendServiceBusMessage(new ServiceBusMessageData
                 {
-                    Name = pt.PatientName,
-                    Status = pt.PatientStatus,
-                    Problem = pt.PatientProb,
-                    Department = pt.DeptId
+                    PatientName = pt.PatientName,
+                    PatientStatus= pt.PatientStatus,
+                    PatientProb = pt.PatientProb,
+                    DeptName = pt.DeptId,
+                    Message = "Patient Added Successfully",
+                    Action = "Add"
+                    
                 });
                 _Logger.LogInformation("Patient endpoint completed");
             }

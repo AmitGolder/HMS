@@ -4,6 +4,11 @@
     ViewData["Title"] = "Add Patient Details";
 }
 
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Add Patient's Details</h4>
+    <hr>
+</div>
+
 <form method="post" asp-controller="Patient" asp-action="AddPatient">
     <div>
         <div class="row">
@@ -11,7 +16,7 @@
 
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="PatientName"></label>
+                        <label>Patient Name</label>
                     </div>
                     <div class="col-8">
                         <input asp-for="PatientName" class="form-control" />
@@ -21,8 +26,9 @@
 
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="PatientStatus"></label>
+                        <label>Patient Status</label>
                     </div>
+
                     <div class="col-8">
                         <input asp-for="PatientStatus" class="form-control" />
                         <span asp-validation-for="PatientStatus" class="text-danger"></span>
@@ -30,38 +36,40 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="PatientProb"></label>
+                        <label>Patient Problem</label>
                     </div>
                     <div class="col-8">
                         <input asp-for="PatientProb" class="form-control" />
                         <span asp-validation-for="PatientProb" class="text-danger"></span>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="DeptId"></label>
+                        <label>Department Name</label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="DeptId" class="form-control" />
-                        <span asp-validation-for="DeptId" class="text-danger"></span>
+                        <input asp-for="DeptName" class="form-control" />
+                        <span asp-validation-for="DeptName" class="text-danger"></span>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     @*<div class="col-6 offset-4 row">*@
                     <div class="col-4 offset-4">
-                        <input type="submit" class="btn btn-info w-100" value="Add" />
+                        <input type="submit" class="btn btn-danger w-100" value="Add" />
                     </div>
-                    @if (ViewBag.Message != null)
-                    {
-                    <a class="nav-link text-dark btn-primary font-weight-bold" style="position: relative; margin: 10px; background-color: #ff8d00;float: right" asp-controller="Admin" asp-action="GetAllPatients">Get Patient Details</a>
-                    <script type="text/javascript">
+
+                </div>
+                @if (ViewBag.Message != null)
+                {
+                <a class="btn btn-outline-info btn-lg btn-block" asp-controller="Admin" asp-action="GetAllPatients">List of all patients</a>
+                <script type="text/javascript">
                                                 window.onload = function () {
                                                 alert("@ViewBag.Message");
                                                 };
-                    </script>
-                    }
-                </div>
+                </script>
+                }
             </div>
         </div>
     </div>

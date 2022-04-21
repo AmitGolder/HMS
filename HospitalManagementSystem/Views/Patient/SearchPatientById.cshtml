@@ -1,0 +1,56 @@
+﻿@model HospitalManagementSystem.Models.Patient
+@{
+    ViewData["Title"] = "SearchPatientById";
+}
+
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Add Patient's Details</h4>
+    <hr>
+</div>
+
+<form asp-controller="Patient" asp-action="SearchPatientById" method="get">
+    <p>
+        Search Patient <input type="text" name="ptID" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+@*
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PatientStatus[0].)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PatientProb[0].ToString)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PatientStatus[0].t)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Movies[0].Price)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.PatientStatus)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PatientName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReleaseDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Genre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+

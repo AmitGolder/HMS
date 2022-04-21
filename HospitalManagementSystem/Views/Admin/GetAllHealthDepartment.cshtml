@@ -1,26 +1,28 @@
 ﻿@model IEnumerable<HospitalManagementSystem.Models.HealthDepartment>
 @{
-    ViewData["Title"] = "GetAllHealthDepartment";
+    ViewData["Title"] = "List of health departments";
 }
 
-<h1>GetAllHealthDepartment</h1>
-
-<div>
-    <h2 class="text-primary">Department List</h2>
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">List of Health Department</h4>
+    <hr>
 </div>
 
 <div class="container p-3">
-    
+
     @if (Model.Count() > 0)
     {
         <table class="table table-bordered table-striped" style="width:100%">
             <thead>
                 <tr>
                     <th>
-                        DepartmentID
+                        Department ID
                     </th>
                     <th>
-                        DepartmentName
+                        Department Name
+                    </th>
+                    <th>
+                        Update Department
                     </th>
                 </tr>
             </thead>
@@ -30,12 +32,12 @@
                     <tr>
                         <td>@detail.DeptId</td>
                         <td>@detail.DeptName</td>
-                        
+
 
                         <td class="text-center">
                             <div class="w-75 btn-group" role="group">
-                                <a asp-controller="Admin" asp-route-Id="@detail.DeptId" asp-action="EditHealthDepartment" class="btn btn-primary mx-1">
-                                    Edit<i class="fas fa-edit"></i>
+                                <a asp-controller="Admin" asp-route-Id="@detail.DeptId" asp-action="EditHealthDepartment" class="btn btn-outline-primary btn-sm">
+                                    Update<i class="fas fa-edit"></i>
                                 </a>
                             </div>
                         </td>
@@ -45,5 +47,10 @@
         </table>
         <br />
     }
+    <a class="btn btn-outline-danger btn-lg btn-block" asp-controller="HealthDepartment" asp-action="AddHealthDepartmentById">Add Health Department</a>
 </div>
+
+
+
+
 

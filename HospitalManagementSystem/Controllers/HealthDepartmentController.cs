@@ -22,7 +22,12 @@ namespace HospitalManagementSystem.Controllers
         {
             return View();
         }
-       
+
+        public ActionResult AddHealthDepartmentById()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult AddHealthDepartmentById(HealthDepartment depName)
         {

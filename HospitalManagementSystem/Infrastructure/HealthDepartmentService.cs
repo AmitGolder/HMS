@@ -99,6 +99,25 @@ namespace HospitalManagementSystem.Infrastructure
             return model;
         }
 
-        
+        public bool EditHealthDepartment(HealthDepartment hd)
+        {
+            var healthDepart = SearchHealthDepartment(hd.DeptId);
+
+
+            if (healthDepart != null)
+            {
+                healthDepart.DeptName = hd.DeptName;
+                _appContext.Update<HealthDepartment>(healthDepart);
+            }
+            if (_appContext.SaveChanges() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }

@@ -10,10 +10,16 @@ namespace HospitalManagementSystem.Models
         
         
             public int? PatientID { get; set; }
-            public string Name { get; set; }
-            public string Status { get; set; }
-            public string Problem { get; set; }
-            public int Department { get; set; }
+            public string PatientName { get; set; }
+            public string PatientStatus { get; set; }
+            public string PatientProb { get; set; }
+            public int DeptName { get; set; }
+            public string  Message { get; set; }
+            public string Action { get; set; }
+
+
+
+
 
     }
 }

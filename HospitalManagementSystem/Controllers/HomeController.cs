@@ -1,4 +1,5 @@
-﻿using HospitalManagementSystem.Models;
+﻿using HospitalManagementSystem.Infrastructure;
+using HospitalManagementSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,6 +13,7 @@ namespace HospitalManagementSystem.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -39,6 +41,11 @@ namespace HospitalManagementSystem.Controllers
         }
 
         public IActionResult AddPatient()
+        {
+            return View();
+        }
+
+        public IActionResult SearchPatientById()
         {
             return View();
         }

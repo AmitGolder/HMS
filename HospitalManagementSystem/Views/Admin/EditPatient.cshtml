@@ -1,16 +1,20 @@
 ﻿@model HospitalManagementSystem.Models.Patient
 
 @{
-    ViewData["Title"] = "Update Student Details";
+    ViewData["Title"] = "UpdatePatientDetails";
 }
 
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Update Patient's Status</h4>
+    <hr>
+</div>
 <form method="post" asp-controller="Admin" asp-action="EditPatient">
     <div>
         <div class="row">
             <div class="col-8">
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="PatientID"></label>
+                        <label>Patient ID</label>
                     </div>
                     <div class="col-8">
                         <input asp-for="PatientID" class="form-control" readonly />
@@ -19,7 +23,7 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="PatientName"></label>
+                        <label>Patient Name</label>
                     </div>
                     <div class="col-8">
                         <input asp-for="PatientName" class="form-control" readonly />
@@ -28,39 +32,40 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="PatientStatus"></label>
+                        <label>Patient Status</label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="PatientStatus" class="form-control"/>
+                        <input asp-for="PatientStatus" class="form-control" />
                         <span asp-validation-for="PatientStatus" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="PatientProb"></label>
+                        <label>Patient Problem</label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="PatientProb" class="form-control" readonly/>
+                        <input asp-for="PatientProb" class="form-control" readonly />
                         <span asp-validation-for="PatientProb" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="DeptName"></label>
+                        <label>Department Name</label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="DeptName" class="form-control" readonly/>
+                        <input asp-for="DeptName" class="form-control" readonly />
                         <span asp-validation-for="DeptName" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     @*<div class="col-6 offset-4 row">*@
                     <div class="col-4 offset-4">
-                        <input type="submit" class="btn btn-info w-100" value="Update" />
+                        <input type="submit" class="btn btn-danger w-100" value="Update" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 </form>
 

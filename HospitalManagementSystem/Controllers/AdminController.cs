@@ -44,24 +44,7 @@ namespace HospitalManagementSystem.Controllers
             return View(patient);
         }
 
-        public async Task<IActionResult> GetAllPatients1()
-        {
-            _Logger.LogInformation("Patient endpoint starts");
-            var patient = await _ptService.GetPatientList();
-            try
-            {
-                if (patient == null) return NotFound();
-                _Logger.LogInformation("patient endpoint completed");
-            }
-            catch (Exception ex)
-            {
-                _Logger.LogError("exception occured;ExceptionDetail:" + ex.Message);
-                _Logger.LogError("exception occured;ExceptionDetail:" + ex.InnerException);
-                _Logger.LogError("exception occured;ExceptionDetail:" + ex);
-                return BadRequest();
-            }
-            return Ok(patient);
-        }
+       
 
         public async Task<IActionResult> GetAllHealthDepartment()
         {
@@ -108,6 +91,40 @@ namespace HospitalManagementSystem.Controllers
                 _Logger.LogInformation("patient endpoint completed");
                 //return Ok(pt);
                 return View(status);
+            }
+            catch (Exception ex)
+            {
+                _Logger.LogError("exception occured;ExceptionDetail:" + ex.Message);
+                _Logger.LogError("exception occured;ExceptionDetail:" + ex.InnerException);
+                _Logger.LogError("exception occured;ExceptionDetail:" + ex);
+                return BadRequest();
+            }
+        }
+
+        public ActionResult EditHealthDepartment(int Id)
+        {
+            var healthdepartment = _healthDeptService.SearchHealthDepartment(Id);
+            if (healthdepartment == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return View(healthdepartment);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult EditHealthDepartment(HealthDepartment depName)
+        {
+            _Logger.LogInformation("patient endpoint starts");
+            bool hd;
+            try
+            {
+                hd = _healthDeptService.EditHealthDepartment(depName);
+                _Logger.LogInformation("patient endpoint completed");
+                //return Ok(pt);
+                return View(depName);
             }
             catch (Exception ex)
             {

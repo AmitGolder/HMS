@@ -16,6 +16,8 @@ namespace HospitalManagementSystem.Infrastructure
 
         bool UpdateDepartment(HealthDepartment departmentName);
 
+         public bool EditHealthDepartment(HealthDepartment departmentName);
+
         ResponseModel DeleteHealthDepartment(int departmentID);
         
     }
