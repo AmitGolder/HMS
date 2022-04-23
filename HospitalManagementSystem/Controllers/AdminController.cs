@@ -48,7 +48,7 @@ namespace HospitalManagementSystem.Controllers
 
         public async Task<IActionResult> GetAllHealthDepartment()
         {
-            _Logger.LogInformation("student endpoint starts");
+            _Logger.LogInformation("department endpoint starts");
             var department = await _healthDeptService.GetHealthDepartmentList();
             try
             {
