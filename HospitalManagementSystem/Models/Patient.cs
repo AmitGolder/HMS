@@ -12,7 +12,7 @@ namespace HospitalManagementSystem.Models
         [Key]
         public int PatientID { get; set; }
 
-        [ForeignKey("HealthDepartment")]
+        
         public int DeptId { get; set; }
         public string DeptName { get; set; }
 

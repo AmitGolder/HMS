@@ -48,7 +48,7 @@ namespace HospitalManagementSystem.Controllers
 
         public async Task<IActionResult> GetAllHealthDepartment()
         {
-            _Logger.LogInformation("department endpoint starts");
+            _Logger.LogInformation("student endpoint starts");
             var department = await _healthDeptService.GetHealthDepartmentList();
             try
             {
@@ -65,7 +65,35 @@ namespace HospitalManagementSystem.Controllers
                 return BadRequest();
             }
             return View(department);
-        } 
+        }
+        public ActionResult DeletePatient(int Id)
+        {
+            var patient = _ptService.SearchPatient(Id);
+            if (patient == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var responseModel = _ptService.DeletePatient(Id);
+                ViewBag.Message = string.Format("Patient Deleted Successfully");
+                return View(patient);
+            }
+        }
+        public ActionResult DeleteHealthDepartment(int depid)
+        {
+            var department = _healthDeptService.DeleteHealthDepartment(depid);
+            if (department == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                var responseModel = _ptService.DeletePatient(depid);
+                ViewBag.Message = string.Format("Department Deleted Successfully");
+                return View(department);
+            }
+        }
 
         public ActionResult EditPatient(int Id)
         {

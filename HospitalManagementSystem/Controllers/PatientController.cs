@@ -26,26 +26,6 @@ namespace HospitalManagementSystem.Controllers
             return View();
         }
 
-        public ActionResult SearchPatientById(int ptID)
-        {
-            _Logger.LogInformation("Patient endpoint starts");
-            Patient pt;
-            try
-            {
-                pt = _ptService.SearchPatient(ptID);
-
-                _Logger.LogInformation("Patient endpoint completed");
-            }
-
-            catch (Exception ex)
-            {
-                _Logger.LogError("exception occured;ExceptionDetail:" + ex.Message);
-                _Logger.LogError("exception occured;ExceptionDetail:" + ex.InnerException);
-                _Logger.LogError("exception occured;ExceptionDetail:" + ex);
-                return BadRequest("Not Found");
-            }
-            return Ok(pt);
-        }
 
         public ActionResult AddPatient()
         {
@@ -80,6 +60,7 @@ namespace HospitalManagementSystem.Controllers
             ViewBag.Message = string.Format("Patient Added Successfully");
             return View();
         }
+        
 
         public ActionResult EditPatient(Patient status)
         {

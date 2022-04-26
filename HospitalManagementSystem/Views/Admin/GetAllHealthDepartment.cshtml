@@ -22,26 +22,36 @@
                         Department Name
                     </th>
                     <th>
-                        Update Department
+                        Update Department Name
+                    </th>
+                    <th>
+                        Remove Department Name
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var detail in Model)
                 {
-                    <tr>
-                        <td>@detail.DeptId</td>
-                        <td>@detail.DeptName</td>
+                <tr>
+                    <td>@detail.DeptId</td>
+                    <td>@detail.DeptName</td>
 
 
-                        <td class="text-center">
-                            <div class="w-75 btn-group" role="group">
-                                <a asp-controller="Admin" asp-route-Id="@detail.DeptId" asp-action="EditHealthDepartment" class="btn btn-outline-primary btn-sm">
-                                    Update<i class="fas fa-edit"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
+                    <td class="text-center">
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Admin" asp-route-Id="@detail.DeptId" asp-action="EditHealthDepartment" class="btn btn-outline-primary btn-sm">
+                                Update<i class="fas fa-edit"></i>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Admin" asp-route-Id="@detail.DeptId" asp-action="DeleteHealthDepartment" class="btn btn-outline-danger">
+                                Remove<i class="far fa-trash-alt"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

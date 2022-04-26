@@ -94,24 +94,5 @@ namespace HospitalManagementSystem.Controllers
             }
         }
 
-        public ActionResult SearchHealthDepartment(int depid)
-        {
-            _Logger.LogInformation("Department endpoint starts");
-            HealthDepartment dept;
-            try
-            {
-                dept = _depService.SearchHealthDepartment(depid);
-                _Logger.LogInformation("Department endpoint completed");
-            }
-
-            catch (Exception ex)
-            {
-                _Logger.LogError("exception occured;ExceptionDetail:" + ex.Message);
-                _Logger.LogError("exception occured;ExceptionDetail:" + ex.InnerException);
-                _Logger.LogError("exception occured;ExceptionDetail:" + ex);
-                return BadRequest("Not Found");
-            }
-            return Ok(dept);
-        }
     }
 }

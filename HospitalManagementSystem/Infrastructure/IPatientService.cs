@@ -14,5 +14,6 @@ namespace HospitalManagementSystem.Infrastructure
 
         public void AddPatient(Patient pt);
         public bool EditPatient(Patient pt);
+        ResponseModel DeletePatient(int ptId);
     }
 }

@@ -1,0 +1,23 @@
+﻿@model HospitalManagementSystem.Models.Patient
+
+@{
+    ViewData["Title"] = "DeletePatient";
+}
+
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Patient's details deleted successfully</h4>
+    <hr>
+</div>
+
+
+@if (ViewBag.Message != null)
+{
+    <a class="btn btn-outline-info btn-lg btn-block" asp-controller="Admin" asp-action="GetAllPatients">List of all patients</a>
+    <script type="text/javascript">
+                                                window.onload = function () {
+                                                alert("@ViewBag.Message");
+                                                };
+    </script>
+}
+
+

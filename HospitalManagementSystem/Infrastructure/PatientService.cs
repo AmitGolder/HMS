@@ -49,7 +49,26 @@ namespace HospitalManagementSystem.Infrastructure
 
             return pt;
         }
+        public ResponseModel DeletePatient(int ptid)
+        {
+            ResponseModel model = new ResponseModel();
+            try
+            {
+                var pt = SearchPatient(ptid);
+                _appContext.Remove<Patient>(pt);
 
+                _appContext.SaveChanges();
+                model.ISuccess = true;
+                model.Message = " Patient's record removed succesfully";
+            }
+
+            catch (Exception ex)
+            {
+                model.ISuccess = false;
+                model.Message = " Error:" + ex.Message;
+            }
+            return model;
+        }
 
         public void AddPatient(Patient pt)
         {
@@ -77,6 +96,7 @@ namespace HospitalManagementSystem.Infrastructure
             }
 
         }
+
     }
 
 }

@@ -59,7 +59,7 @@ namespace HospitalManagementSystem.Infrastructure
                 return false;
             }
         }
-
+       
 
         public HealthDepartment SearchHealthDepartment(int depid)
         {
@@ -78,17 +78,17 @@ namespace HospitalManagementSystem.Infrastructure
         }
 
 
-        public ResponseModel DeleteHealthDepartment(int depid)
+        public ResponseModel DeleteHealthDepartment(int depID)
         {
             ResponseModel model = new ResponseModel();
             try
             {
-                var depat = SearchHealthDepartment(depid);
+                var depat = SearchHealthDepartment(depID);
                 _appContext.Remove<HealthDepartment>(depat);
 
                 _appContext.SaveChanges();
                 model.ISuccess = true;
-                model.Message = " depatent marks records removed succesfully";
+                model.Message = " Department removed succesfully";
             }
 
             catch (Exception ex)

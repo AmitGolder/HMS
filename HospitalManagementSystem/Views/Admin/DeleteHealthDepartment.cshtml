@@ -1,0 +1,23 @@
+﻿@model HospitalManagementSystem.Models.HealthDepartment
+
+@{
+    ViewData["Title"] = "DeleteHealthDepartment";
+}
+
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Department deleted successfully</h4>
+    <hr>
+</div>
+
+
+@if (ViewBag.Message != null)
+{
+<a class="nav-link text-dark btn-primary font-weight-bold" style="position: relative; margin: 10px; background-color: #ff8d00;float: right" asp-controller="Admin" asp-action="GetAllHealthDepartment">List of Health Department</a>
+    <script type="text/javascript">
+                                                window.onload = function () {
+                                                alert("@ViewBag.Message");
+                                                };
+    </script>
+}
+
+
